@@ -1,0 +1,1731 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Matrice del Destino Public Tools API",
+    "version": "1.0.0",
+    "description": "Numerical personal and couple matrices. Premium readings and PDFs are separate products.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+    "contact": {
+      "name": "Matrice del Destino",
+      "url": "https://matricedeldestino.it"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://matricedeldestino.it"
+    }
+  ],
+  "security": [],
+  "externalDocs": {
+    "description": "Usage and limits",
+    "url": "https://github.com/Lucernel/public-apis/blob/main/docs/matrice.md"
+  },
+  "paths": {
+    "/api/public/v1/matrix": {
+      "post": {
+        "operationId": "matrix",
+        "summary": "Personal matrix",
+        "description": "Calculate the numerical personal matrix using the site’s 22-number method.",
+        "responses": {
+          "200": {
+            "description": "Computed result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string",
+                      "enum": [
+                        "1"
+                      ]
+                    },
+                    "method": {
+                      "type": "string",
+                      "enum": [
+                        "matrice-22-v1"
+                      ]
+                    },
+                    "points": {
+                      "type": "object",
+                      "properties": {
+                        "A": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "B": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "C": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "D": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "E": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "M": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "Q": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "N": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "J": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "K": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "O": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "P": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "S": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "T": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        }
+                      },
+                      "required": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "I",
+                        "H",
+                        "F1",
+                        "F2",
+                        "G1",
+                        "G2",
+                        "I1",
+                        "I2",
+                        "H1",
+                        "H2",
+                        "M",
+                        "L",
+                        "R",
+                        "R2",
+                        "R1",
+                        "Q",
+                        "N",
+                        "J",
+                        "K",
+                        "O",
+                        "P",
+                        "L2",
+                        "L1",
+                        "S",
+                        "T"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "purposes": {
+                      "type": "object",
+                      "properties": {
+                        "skypoint": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "earthpoint": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "perspurpose": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "femalepoint": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "malepoint": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "socialpurpose": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "generalpurpose": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "planetarypurpose": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        }
+                      },
+                      "required": [
+                        "skypoint",
+                        "earthpoint",
+                        "perspurpose",
+                        "femalepoint",
+                        "malepoint",
+                        "socialpurpose",
+                        "generalpurpose",
+                        "planetarypurpose"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "source": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "method",
+                    "points",
+                    "purposes",
+                    "source"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "414": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "description": "A real calendar date in YYYY-MM-DD. Birth dates: 1900 through today (UTC)."
+                  }
+                },
+                "required": [
+                  "date"
+                ],
+                "additionalProperties": false
+              },
+              "example": {
+                "date": "1990-06-15"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/v1/couple": {
+      "post": {
+        "operationId": "couple",
+        "summary": "Couple matrix",
+        "description": "Calculate two personal matrices and their combined numerical couple matrix.",
+        "responses": {
+          "200": {
+            "description": "Computed result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string",
+                      "enum": [
+                        "1"
+                      ]
+                    },
+                    "method": {
+                      "type": "string",
+                      "enum": [
+                        "matrice-couple-22-v1"
+                      ]
+                    },
+                    "couple": {
+                      "type": "object",
+                      "properties": {
+                        "A": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "B": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "C": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "D": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "E": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "M": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "Q": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "N": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "J": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "K": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "O": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "P": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "S": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "T": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        }
+                      },
+                      "required": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "I",
+                        "H",
+                        "F1",
+                        "F2",
+                        "G1",
+                        "G2",
+                        "I1",
+                        "I2",
+                        "H1",
+                        "H2",
+                        "M",
+                        "L",
+                        "R",
+                        "R2",
+                        "R1",
+                        "Q",
+                        "N",
+                        "J",
+                        "K",
+                        "O",
+                        "P",
+                        "L2",
+                        "L1",
+                        "S",
+                        "T"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "first": {
+                      "type": "object",
+                      "properties": {
+                        "A": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "B": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "C": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "D": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "E": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "M": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "Q": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "N": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "J": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "K": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "O": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "P": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "S": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "T": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        }
+                      },
+                      "required": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "I",
+                        "H",
+                        "F1",
+                        "F2",
+                        "G1",
+                        "G2",
+                        "I1",
+                        "I2",
+                        "H1",
+                        "H2",
+                        "M",
+                        "L",
+                        "R",
+                        "R2",
+                        "R1",
+                        "Q",
+                        "N",
+                        "J",
+                        "K",
+                        "O",
+                        "P",
+                        "L2",
+                        "L1",
+                        "S",
+                        "T"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "second": {
+                      "type": "object",
+                      "properties": {
+                        "A": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "B": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "C": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "D": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "E": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "F2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "G2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "I2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "H2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "M": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "R1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "Q": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "N": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "J": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "K": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "O": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "P": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L2": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "L1": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "S": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        },
+                        "T": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 22
+                        }
+                      },
+                      "required": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "I",
+                        "H",
+                        "F1",
+                        "F2",
+                        "G1",
+                        "G2",
+                        "I1",
+                        "I2",
+                        "H1",
+                        "H2",
+                        "M",
+                        "L",
+                        "R",
+                        "R2",
+                        "R1",
+                        "Q",
+                        "N",
+                        "J",
+                        "K",
+                        "O",
+                        "P",
+                        "L2",
+                        "L1",
+                        "S",
+                        "T"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "source": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "method",
+                    "couple",
+                    "first",
+                    "second",
+                    "source"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "414": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "description": "A real calendar date in YYYY-MM-DD. Birth dates: 1900 through today (UTC)."
+                  },
+                  "second_date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "description": "A real calendar date in YYYY-MM-DD. Birth dates: 1900 through today (UTC)."
+                  }
+                },
+                "required": [
+                  "first_date",
+                  "second_date"
+                ],
+                "additionalProperties": false
+              },
+              "example": {
+                "first_date": "1990-06-15",
+                "second_date": "1986-09-27"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

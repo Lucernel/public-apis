@@ -1,0 +1,446 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Lucernel Public Tools API",
+    "version": "1.0.0",
+    "description": "Daily verses from the public-domain World English Bible dataset used by the website.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+    "contact": {
+      "name": "Lucernel",
+      "url": "https://lucernel.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://lucernel.com"
+    }
+  ],
+  "security": [],
+  "externalDocs": {
+    "description": "Usage and limits",
+    "url": "https://github.com/Lucernel/public-apis/blob/main/docs/lucernel.md"
+  },
+  "paths": {
+    "/api/public/v1/daily-verse": {
+      "get": {
+        "operationId": "verse",
+        "summary": "Daily Bible verse",
+        "description": "Read the World English Bible verse for a calendar date; defaults to today in UTC.",
+        "responses": {
+          "200": {
+            "description": "Computed result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string",
+                      "enum": [
+                        "1"
+                      ]
+                    },
+                    "date": {
+                      "type": "string",
+                      "format": "date",
+                      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                      "description": "A real calendar date in YYYY-MM-DD. Birth dates: 1900 through today (UTC)."
+                    },
+                    "reference": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "translation": {
+                      "type": "string",
+                      "enum": [
+                        "World English Bible"
+                      ]
+                    },
+                    "source": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "date",
+                    "reference",
+                    "text",
+                    "translation",
+                    "source"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "414": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request rejected; inspect the HTTP status and error.code.",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before a later attempt (429/503).",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Calendar date from 1900 through 2100. Defaults to today in UTC."
+            }
+          }
+        ]
+      }
+    }
+  }
+}

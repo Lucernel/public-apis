@@ -1,0 +1,21 @@
+const text = { type: 'string' };
+const date = { type: 'string', format: 'date', pattern: '^\\d{4}-\\d{2}-\\d{2}$', description: 'A real calendar date in YYYY-MM-DD. Birth dates: 1900 through today (UTC).' };
+const number = { type: 'integer', minimum: 1, maximum: 22 };
+const object = (properties, required = Object.keys(properties)) => ({ type: 'object', properties, required, additionalProperties: false });
+const points = object(Object.fromEntries('A B C D E F G I H F1 F2 G1 G2 I1 I2 H1 H2 M L R R2 R1 Q N J K O P L2 L1 S T'.split(' ').map(key => [key, number])));
+const purposes = object(Object.fromEntries('skypoint earthpoint perspurpose femalepoint malepoint socialpurpose generalpurpose planetarypurpose'.split(' ').map(key => [key, number])));
+const response = fields => object({ version: { type: 'string', enum: ['1'] }, ...fields, source: { type: 'string', format: 'uri' } });
+export const NAME_KINDS = ['fantasy','fantasy-last','elf','dwarf','dragon','kingdom','town','village','tavern','wizard','orc','city','guild','ship','sword','spell','god','demon','vampire','pirate','knight','sci-fi-planet','alien','starship'];
+export const contracts = [
+  { tool: 'matrix', brand: 'matrice', title: 'Personal matrix', summary: 'Calculate the numerical personal matrix using the site’s 22-number method.', method: 'POST', path: '/api/public/v1/matrix', input: object({ date }), example: { date: '1990-06-15' }, output: response({ method: { type: 'string', enum: ['matrice-22-v1'] }, points, purposes }) },
+  { tool: 'couple', brand: 'matrice', title: 'Couple matrix', summary: 'Calculate two personal matrices and their combined numerical couple matrix.', method: 'POST', path: '/api/public/v1/couple', input: object({ first_date: date, second_date: date }), example: { first_date: '1990-06-15', second_date: '1986-09-27' }, output: response({ method: { type: 'string', enum: ['matrice-couple-22-v1'] }, couple: points, first: points, second: points }) },
+  { tool: 'angel-number', brand: 'imes', title: 'Date-based angel number', summary: 'Calculate the date digit root used by the Istruzione Messina calculator.', method: 'POST', path: '/api/public/v1/angel-number.php', input: object({ date }), example: { date: '1990-06-15' }, output: response({ method: { type: 'string', enum: ['digit-root-date-v1'] }, number: { type: 'integer', minimum: 1, maximum: 9 } }) },
+  { tool: 'verse', brand: 'lucernel', title: 'Daily Bible verse', summary: 'Read the World English Bible verse for a calendar date; defaults to today in UTC.', method: 'GET', path: '/api/public/v1/daily-verse', input: object({ date: { ...date, description: 'Calendar date from 1900 through 2100. Defaults to today in UTC.' } }, []), example: { date: '2026-10-23' }, output: response({ date, reference: text, text, translation: { type: 'string', enum: ['World English Bible'] } }) },
+  { tool: 'names', brand: 'musael', title: 'Seeded name generator', summary: 'Generate up to 20 names using one of 24 deterministic generators, without AI or account access.', method: 'GET', path: '/api/public/v1/names', input: object({ kind: { type: 'string', enum: NAME_KINDS, default: 'fantasy' }, seed: { type: 'integer', minimum: 1, maximum: 999999, default: 1 }, count: { type: 'integer', minimum: 1, maximum: 20, default: 10 } }, []), example: { kind: 'fantasy', seed: 123, count: 10 }, output: response({ kind: { type: 'string', enum: NAME_KINDS }, seed: { type: 'integer' }, names: { type: 'array', minItems: 1, maxItems: 20, items: text } }) },
+];
+export const brands = {
+  matrice: { name: 'Matrice del Destino', origin: 'https://matricedeldestino.it', description: 'Numerical personal and couple matrices. Premium readings and PDFs are separate products.' },
+  imes: { name: 'Istruzione Messina', origin: 'https://istruzionemessina.it', description: 'A small date-based angel-number calculator. This is a symbolic calculation, not a factual prediction.' },
+  lucernel: { name: 'Lucernel', origin: 'https://lucernel.com', description: 'Daily verses from the public-domain World English Bible dataset used by the website.' },
+  musael: { name: 'Musael', origin: 'https://musael.com', description: 'Deterministic name generators for writers. No AI calls, private workspace access or manuscripts.' },
+};

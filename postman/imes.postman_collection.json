@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "Istruzione Messina Public Tools",
+    "description": "A small date-based angel-number calculator. This is a symbolic calculation, not a factual prediction.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Date-based angel number",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "OpenAI File Downloader, XaiImageApiFetch/1.0"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "https://istruzionemessina.it/api/public/v1/angel-number.php",
+        "description": "Calculate the date digit root used by the Istruzione Messina calculator.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"date\": \"1990-06-15\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Response is JSON\", () => pm.response.to.be.json);",
+              "pm.test(\"Version 1 or explicit refusal\", () => { const body = pm.response.json(); if (pm.response.code === 200) pm.expect(body.version).to.eql(\"1\"); else pm.expect(body).to.have.property(\"error\"); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

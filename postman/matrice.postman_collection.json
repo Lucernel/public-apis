@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Matrice del Destino Public Tools",
+    "description": "Numerical personal and couple matrices. Premium readings and PDFs are separate products.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Personal matrix",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "OpenAI File Downloader, XaiImageApiFetch/1.0"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "https://matricedeldestino.it/api/public/v1/matrix",
+        "description": "Calculate the numerical personal matrix using the site’s 22-number method.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"date\": \"1990-06-15\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Response is JSON\", () => pm.response.to.be.json);",
+              "pm.test(\"Version 1 or explicit refusal\", () => { const body = pm.response.json(); if (pm.response.code === 200) pm.expect(body.version).to.eql(\"1\"); else pm.expect(body).to.have.property(\"error\"); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Couple matrix",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "OpenAI File Downloader, XaiImageApiFetch/1.0"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "https://matricedeldestino.it/api/public/v1/couple",
+        "description": "Calculate two personal matrices and their combined numerical couple matrix.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_date\": \"1990-06-15\",\n  \"second_date\": \"1986-09-27\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Response is JSON\", () => pm.response.to.be.json);",
+              "pm.test(\"Version 1 or explicit refusal\", () => { const body = pm.response.json(); if (pm.response.code === 200) pm.expect(body.version).to.eql(\"1\"); else pm.expect(body).to.have.property(\"error\"); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

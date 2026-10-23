@@ -1,0 +1,16 @@
+{
+  "name": "@lucernel/public-tools",
+  "version": "0.1.0",
+  "description": "Small, rate-limited public tools from Matrice del Destino, Istruzione Messina, Lucernel and Musael.",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "lucernel-tools": "bin/lucernel-tools.mjs", "lucernel-tools-mcp": "bin/lucernel-tools-mcp.mjs" },
+  "files": ["bin", "client", "mcp", "openapi", "postman", "skills", "docs", "README.md", "LICENSE"],
+  "exports": { ".": "./client/index.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.32.1", "zod": "4.6.7" },
+  "scripts": { "test": "node --test test/*.test.mjs" },
+  "license": "MIT",
+  "author": "Lucernel LLC",
+  "homepage": "https://lucernel.com",
+  "repository": { "type": "git", "url": "git+https://github.com/Lucernel/public-apis.git" }
+}

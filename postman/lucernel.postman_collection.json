@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "Lucernel Public Tools",
+    "description": "Daily verses from the public-domain World English Bible dataset used by the website.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Daily Bible verse",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "OpenAI File Downloader, XaiImageApiFetch/1.0"
+          }
+        ],
+        "url": "https://lucernel.com/api/public/v1/daily-verse?date=2026-10-23",
+        "description": "Read the World English Bible verse for a calendar date; defaults to today in UTC.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Response is JSON\", () => pm.response.to.be.json);",
+              "pm.test(\"Version 1 or explicit refusal\", () => { const body = pm.response.json(); if (pm.response.code === 200) pm.expect(body.version).to.eql(\"1\"); else pm.expect(body).to.have.property(\"error\"); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
