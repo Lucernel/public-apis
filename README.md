@@ -13,7 +13,7 @@ This repository documents small, unauthenticated JSON tools from four independen
 
 Read [API behavior, errors, limits, and privacy](docs/api.md) before integrating. Each site has its own origin and quota, with site-specific limiter state. The local CLI is covered in [CLI usage](docs/cli.md). Optional local stdio integration is documented in [MCP server setup](docs/mcp.md).
 
-The `lucernel-tools` CLI requires Node.js 22 or later. Run `bunx --package @lucernel/public-tools@0.1.0 lucernel-tools --help`, or follow the source instructions below.
+The `lucernel-tools` CLI requires Node.js 22 or later. Run `bunx --package @lucernel/public-tools@0.1.1 lucernel-tools --help`, or follow the source instructions below.
 
 These tools use existing site calculations or data. They do not require authentication, call AI services, or access application databases. Matrice premium readings and PDFs, private account data, and Musael manuscripts are outside this API.
 
@@ -28,7 +28,9 @@ Public documentation: [Matrice](https://documenter.getpostman.com/view/59169256/
 - Lucernel: [OpenAPI](openapi/lucernel.json) · [Postman collection](postman/lucernel.postman_collection.json)
 - Musael: [OpenAPI](openapi/musael.json) · [Postman collection](postman/musael.postman_collection.json)
 
-All four APIs are free to use, with no login, key, subscription, or paid tier. Apply bounded retries only: honor Retry-After for 429/503, do not retry validation errors, and never change networks or accounts to evade a quota.
+The direct API endpoints are free to use, with no login, key, subscription, or paid tier. Apply bounded retries only: honor Retry-After for 429/503, do not retry validation errors, and never change networks or accounts to evade a quota.
+
+See [distribution status](docs/distribution.md) for the public package, MCP Registry entry, marketplace links, and checks still pending. Third-party gateways have their own account requirements and quotas.
 
 ## License
 

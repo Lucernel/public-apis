@@ -28,7 +28,7 @@ The --stdin-json option reads one JSON object and accepts up to 2,048 bytes. Do 
 
 Run the package with an explicit executable name:
 
-    bunx --package @lucernel/public-tools@0.1.0 lucernel-tools --help
-    bunx --package @lucernel/public-tools@0.1.0 lucernel-tools matrix --stdin-json
+    bunx --package @lucernel/public-tools@0.1.1 lucernel-tools --help
+    bunx --package @lucernel/public-tools@0.1.1 lucernel-tools matrix --stdin-json
 
-Alternatively, install with `bun add --global @lucernel/public-tools@0.1.0`. Use the installed CLI's `--help` output as the authoritative interface. Never run a network-calling command with a personal birth date in an example or unattended script. The ordinary CLI entry point imports the HTTP client only; it does not import or initialize the optional MCP server or load its MCP SDK and Zod modules.
+Alternatively, install with `bun add --global @lucernel/public-tools@0.1.1`. Use the installed CLI's `--help` output as the authoritative interface. Never run a network-calling command with a personal birth date in an example or unattended script. The ordinary CLI entry point imports the HTTP client only; it does not import or initialize the optional MCP server or load its MCP SDK and Zod modules.

@@ -43,7 +43,9 @@ For JSON-configured clients that use an `mcpServers` object:
 }
 ```
 
-For a package-based client configuration use command `npx` and arguments `["--yes", "--package", "@lucernel/public-tools@0.1.0", "lucernel-tools-mcp"]`. The explicit executable name is required because the package contains both CLI and MCP entry points. With Bun, use `bunx --package @lucernel/public-tools@0.1.0 lucernel-tools-mcp`.
+For a package-based client configuration use command `npx` and arguments `["--yes", "--package", "@lucernel/public-tools@0.1.1", "lucernel-tools-mcp"]`. With Bun, use `bunx --package @lucernel/public-tools@0.1.1 lucernel-tools-mcp`. Version 0.1.1 also provides a default MCP executable, so `bunx @lucernel/public-tools@0.1.1` starts the same stdio server.
+
+The [Official MCP Registry entry](https://registry.modelcontextprotocol.io/?q=io.github.Lucernel%2Fpublic-tools) is `io.github.Lucernel/public-tools`, version 0.1.1. A registry-installed copy was tested against all five live API operations.
 
 ## Tools and limits
 
