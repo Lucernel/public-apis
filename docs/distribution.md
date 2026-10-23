@@ -29,7 +29,7 @@ IMES's owner chose to preserve Cloudflare Bot Fight Mode and use the direct API.
 
 These content/account connectors were already published on October 16 and were verified publicly accessible on October 23. No duplicate servers were created.
 
-- [Matrice del Destino](https://smithery.ai/servers/hello-ddxh/matrice-del-destino): three public-content tools. Its website-link metadata still needs correction.
+- [Matrice del Destino](https://smithery.ai/servers/hello-ddxh/matrice-del-destino): three public-content tools, a readable display name, description, and a verified link to the official site. The existing listing's metadata was corrected on October 23.
 - [Istruzione Messina](https://smithery.ai/servers/hello-ddxh/istruzionemessina): three public-content tools and a verified link to the site.
 - [Lucernel](https://smithery.ai/servers/hello-ddxh/lucernel): four content/catalog tools and a verified link to the site.
 - [Musael](https://smithery.ai/servers/hello-ddxh/musael): fifteen account tools and a verified link to the site. Authentication is required to use its account functions.
