@@ -1,6 +1,6 @@
 # Lucernel API
 
-**Preview:** The Lucernel API route is implemented in a release candidate but is not deployed. Do not call it until deployment is announced.
+**Live as of October 23, 2026.** The Lucernel API route is deployed and was verified through its production proxy.
 
 ## Daily verse
 

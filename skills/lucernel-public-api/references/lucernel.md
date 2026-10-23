@@ -1,6 +1,6 @@
 # Lucernel endpoint reference
 
-**Preview:** Do not call the endpoint until release is announced.
+**Live as of October 23, 2026.** The endpoint is deployed.
 
 - Method and route: GET https://lucernel.com/api/public/v1/daily-verse
 - Optional query: date=YYYY-MM-DD; omission selects the current UTC date

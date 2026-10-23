@@ -1,6 +1,6 @@
 # CLI usage
 
-The CLI implementation in this repository is available locally. The npm package @lucernel/public-tools version 0.1.0 is **not published yet**. These commands call the public APIs unless --dry-run is supplied; while endpoints are marked preview, use --dry-run or the help/version flags only.
+The CLI implementation in this repository is available locally. The npm package `@lucernel/public-tools` is **not published yet**. All five API operations across four sites are live; commands that make requests call those APIs unless `--dry-run` is supplied.
 
 The CLI requires Node.js 22 or later. Run its local entry point from the repository root:
 
@@ -26,9 +26,9 @@ The dry-run output describes the request without contacting the API. Use only a 
 
 The --stdin-json option reads one JSON object and accepts up to 2,048 bytes. Do not combine it with field flags. Input fields follow the endpoint contract in the matching [API reference](api.md).
 
-After npm publication is confirmed, the candidate installation and invocation are:
+After npm publication, installation and invocation are expected to look like this:
 
     npx @lucernel/public-tools@0.1.0 --help
     npx @lucernel/public-tools@0.1.0 matrix --stdin-json
 
-These commands are examples for the planned package release; they are not currently installable from npm. Use the installed CLI's --help output as the authoritative interface after release. Never run a network-calling command with a personal birth date in an example or unattended script.
+These commands are not currently installable from npm. Use the installed CLI's `--help` output as the authoritative interface after publication. Never run a network-calling command with a personal birth date in an example or unattended script. The ordinary CLI entry point imports the HTTP client only; it does not import or initialize the optional MCP server or load its MCP SDK and Zod modules.

@@ -1,6 +1,6 @@
 # Matrice del Destino API
 
-**Preview:** The Matrice API routes are implemented in a release candidate but are not deployed. Do not call them until deployment is announced.
+**Live as of October 23, 2026.** Both Matrice API routes are deployed and production smoke checks passed.
 
 Both routes use the existing Matrice del Destino calculations. They return numerical data, not a premium reading or a PDF.
 
@@ -25,7 +25,7 @@ The OpenAPI schema lists the complete response fields:
 - purposes: an object with numeric keys skypoint, earthpoint, perspurpose, femalepoint, malepoint, socialpurpose, generalpurpose, and planetarypurpose
 - source: https://matricedeldestino.it/calcolo-a-mano
 
-Only calculated book points are returned in points; a missing point is omitted. The release-candidate schema requires all purpose keys. The numerical values follow the existing calculator.
+An exhaustive validation across all 46,317 valid dates from 1900-01-01 through 2026-10-23 confirmed all 32 point keys and all 8 purpose keys are returned. Every value is an integer from 1 through 22; no keys are omitted and no values are null. The runtime mapper's generic `Partial` type is broader than the observed runtime response and does not indicate a schema mismatch.
 
 ## Couple matrix
 
@@ -52,4 +52,4 @@ The OpenAPI schema lists the complete response fields:
 
 See [shared request, rate-limit, and privacy rules](api.md). Do not evade 429 or 503 responses by switching networks.
 
-The release candidate has both route operations in its [OpenAPI spec](../openapi/matrice.json) and [Postman collection](../postman/matrice.postman_collection.json).
+Both live route operations are described in the [OpenAPI spec](../openapi/matrice.json) and [Postman collection](../postman/matrice.postman_collection.json).

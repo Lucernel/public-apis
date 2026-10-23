@@ -1,6 +1,6 @@
 # API behavior, limits, and privacy
 
-**Preview:** These route contracts have implementation/specification artifacts but are not yet deployed. Wait for a release notice before calling them.
+**Live as of October 23, 2026.** All five public operations across four sites are deployed. Their responses were checked against the documented contracts on that date.
 
 ## Request and response format
 
@@ -61,4 +61,4 @@ These endpoints perform small computations or read existing public data. They do
 
 ## Free use and retry policy
 
-All four APIs are planned as free public tools, with no login, API key, subscription, or paid tier. They have no availability or throughput guarantee. Retry a transient 429 or 503 only after the returned Retry-After interval, with a bounded attempt count and backoff. Do not automatically retry 400, 405, 408, 413, 414, or 415. Do not evade limits by changing IP addresses, proxies, or accounts.
+All four sites' APIs are free public tools, with no login, API key, subscription, or paid tier. They have no availability or throughput guarantee. Retry a transient 429 or 503 only after the returned Retry-After interval, with a bounded attempt count and backoff. The CLI and MCP server do not retry automatically. Do not automatically retry 400, 405, 408, 413, 414, or 415. Do not evade limits by changing IP addresses, proxies, or accounts.

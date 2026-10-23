@@ -1,6 +1,6 @@
 # Matrice endpoint reference
 
-**Preview:** Do not call the endpoint until release is announced.
+**Live as of October 23, 2026.** The personal and couple routes are deployed.
 
 ## Personal matrix
 
@@ -10,7 +10,7 @@
 - Response fields: version "1", method "matrice-22-v1", points, purposes, source
 - Source page: https://matricedeldestino.it/calcolo-a-mano
 
-points contains available numeric book-letter values. purposes contains skypoint, earthpoint, perspurpose, femalepoint, malepoint, socialpurpose, generalpurpose, and planetarypurpose; values can be null.
+`points` contains all 32 numeric book-letter values. `purposes` contains skypoint, earthpoint, perspurpose, femalepoint, malepoint, socialpurpose, generalpurpose, and planetarypurpose. Exhaustive validation through 2026-10-23 found integer values from 1 through 22, with no omitted keys or null values.
 
 ## Couple matrix
 

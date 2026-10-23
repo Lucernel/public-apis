@@ -1,6 +1,6 @@
 # Istruzione Messina endpoint reference
 
-**Preview:** Do not call the endpoint until release is announced.
+**Live as of October 23, 2026.** The endpoint is deployed.
 
 - Method and route: POST https://istruzionemessina.it/api/public/v1/angel-number.php
 - JSON request: {"date":"YYYY-MM-DD"}

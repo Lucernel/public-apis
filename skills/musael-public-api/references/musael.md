@@ -1,6 +1,6 @@
 # Musael endpoint reference
 
-**Preview:** Do not call the endpoint until release is announced.
+**Live as of October 23, 2026.** The endpoint is deployed.
 
 - Method and route: GET https://musael.com/api/public/v1/names
 - Optional query parameters: kind (default fantasy), seed (1-999999, default 1), count (1-20, default 10)
