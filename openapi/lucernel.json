@@ -3,7 +3,7 @@
   "info": {
     "title": "Lucernel Public Tools API",
     "version": "1.0.0",
-    "description": "Daily verses from the public-domain World English Bible dataset used by the website.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+    "description": "Daily verses from the public-domain World English Bible dataset used by the website.\n\nOfficial website: [Lucernel](https://lucernel.com).\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
     "contact": {
       "name": "Lucernel",
       "url": "https://lucernel.com"

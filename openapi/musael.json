@@ -3,7 +3,7 @@
   "info": {
     "title": "Musael Public Tools API",
     "version": "1.0.0",
-    "description": "Deterministic name generators for writers. No AI calls, private workspace access or manuscripts.\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
+    "description": "Deterministic name generators for writers. No AI calls, private workspace access or manuscripts.\n\nOfficial website: [Musael](https://musael.com).\n\nNo API key. Per client: burst 10, refill 30/minute. Shared service capacity: burst 20, refill 10/second; at most 8 in flight. Honor Retry-After on HTTP 429/503. POST JSON: maximum 2048 bytes. No automatic retries. Dates are sent in POST bodies, never URL parameters.",
     "contact": {
       "name": "Musael",
       "url": "https://musael.com"
