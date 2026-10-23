@@ -1,6 +1,6 @@
 # Lucernel Public Tools
 
-**Live API operations, verified October 23, 2026.** Five public operations across four sites are deployed and available. The `@lucernel/public-tools` npm package is not published; use the source checkout for the local CLI or optional MCP server.
+**Live API operations, verified October 23, 2026.** Five public operations across four sites are deployed and available. Use the `@lucernel/public-tools` package or this source checkout for the CLI and optional MCP server.
 
 This repository documents small, unauthenticated JSON tools from four independent sites:
 
@@ -13,7 +13,7 @@ This repository documents small, unauthenticated JSON tools from four independen
 
 Read [API behavior, errors, limits, and privacy](docs/api.md) before integrating. Each site has its own origin and quota, with site-specific limiter state. The local CLI is covered in [CLI usage](docs/cli.md). Optional local stdio integration is documented in [MCP server setup](docs/mcp.md).
 
-The `lucernel-tools` CLI is available from this source repository and requires Node.js 22 or later. The npm package is not published, so npm installation examples are not usable yet.
+The `lucernel-tools` CLI requires Node.js 22 or later. Run `bunx --package @lucernel/public-tools@0.1.0 lucernel-tools --help`, or follow the source instructions below.
 
 These tools use existing site calculations or data. They do not require authentication, call AI services, or access application databases. Matrice premium readings and PDFs, private account data, and Musael manuscripts are outside this API.
 

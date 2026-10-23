@@ -1,6 +1,6 @@
 # Optional MCP stdio server
 
-Five API operations across four sites are live, but the npm package is not published. The optional `lucernel-tools-mcp` executable is therefore available from a local source checkout only. It is a local stdio process that calls the same public API operations as the CLI.
+Five API operations across four sites are live. The optional `lucernel-tools-mcp` executable is available from the `@lucernel/public-tools` package or a local source checkout. It is a local stdio process that calls the same public API operations as the CLI.
 
 ## Install from source
 
@@ -43,7 +43,7 @@ For JSON-configured clients that use an `mcpServers` object:
 }
 ```
 
-The npm package is not published, so do not use `npx @lucernel/public-tools` yet. Install dependencies in the source checkout, then configure the client to launch the local file.
+For a package-based client configuration use command `npx` and arguments `["--yes", "--package", "@lucernel/public-tools@0.1.0", "lucernel-tools-mcp"]`. The explicit executable name is required because the package contains both CLI and MCP entry points. With Bun, use `bunx --package @lucernel/public-tools@0.1.0 lucernel-tools-mcp`.
 
 ## Tools and limits
 
