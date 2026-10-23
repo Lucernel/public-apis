@@ -20,7 +20,7 @@ test('response body is bounded even without a length header', async () => {
 test('CLI help, invalid command and stdin dry-run perform no network calls', () => {
   const run = (args, input) => spawnSync(process.execPath, ['bin/lucernel-tools.mjs', ...args], { encoding: 'utf8', input });
   assert.equal(run(['--help']).status, 0);
-  assert.equal(run(['--version']).stdout.trim(), '0.1.0');
+  assert.equal(run(['--version']).stdout.trim(), '0.1.1');
   assert.equal(run(['unknown', '--dry-run']).status, 2);
   const result = run(['matrix', '--stdin-json', '--dry-run'], '{"date":"1990-06-15"}');
   assert.equal(result.status, 0); assert.equal(JSON.parse(result.stdout).dryRun, true);

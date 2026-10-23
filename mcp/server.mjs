@@ -4,7 +4,7 @@ import { requestTool } from '../client/index.mjs';
 import { contracts, NAME_KINDS } from '../client/contracts.mjs';
 
 export function createServer({ request = requestTool } = {}) {
-  const server = new McpServer({ name: 'lucernel-public-tools', version: '0.1.0' });
+  const server = new McpServer({ name: 'lucernel-public-tools', version: '0.1.1' });
   const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).describe('Calendar date YYYY-MM-DD. Send personal birth dates only when the user requests this calculation.');
   const schemas = {
     matrix: { date }, couple: { first_date: date, second_date: date }, 'angel-number': { date },

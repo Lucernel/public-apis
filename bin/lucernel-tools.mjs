@@ -40,7 +40,7 @@ async function stdinJson() {
 async function main() {
   const argv = process.argv.slice(2);
   if (argv.includes('--help') || argv.includes('-h') || argv[0] === 'help') { console.log(help); return; }
-  if (argv.includes('--version')) { console.log('0.1.0'); return; }
+  if (argv.includes('--version')) { console.log('0.1.1'); return; }
   const { values, positionals } = parseArgs({ args: argv, allowPositionals: true, strict: true, options: {
     date: { type: 'string' }, 'first-date': { type: 'string' }, 'second-date': { type: 'string' },
     kind: { type: 'string' }, seed: { type: 'string' }, count: { type: 'string' },
